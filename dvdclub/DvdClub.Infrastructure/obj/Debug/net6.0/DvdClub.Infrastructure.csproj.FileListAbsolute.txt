@@ -1,0 +1,17 @@
+C:\Users\WiZ14\Documents\bups\npp_\dvdclubcore\dvdclub\DvdClub.Infrastructure\bin\Debug\net6.0\DvdClub.Infrastructure.deps.json
+C:\Users\WiZ14\Documents\bups\npp_\dvdclubcore\dvdclub\DvdClub.Infrastructure\bin\Debug\net6.0\DvdClub.Infrastructure.dll
+C:\Users\WiZ14\Documents\bups\npp_\dvdclubcore\dvdclub\DvdClub.Infrastructure\bin\Debug\net6.0\DvdClub.Infrastructure.pdb
+C:\Users\WiZ14\Documents\bups\npp_\dvdclubcore\dvdclub\DvdClub.Infrastructure\bin\Debug\net6.0\DvdClub.Core.dll
+C:\Users\WiZ14\Documents\bups\npp_\dvdclubcore\dvdclub\DvdClub.Infrastructure\bin\Debug\net6.0\DvdClub.Core.pdb
+C:\Users\WiZ14\Documents\bups\npp_\dvdclubcore\dvdclub\DvdClub.Infrastructure\obj\Debug\net6.0\DvdClub.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\WiZ14\Documents\bups\npp_\dvdclubcore\dvdclub\DvdClub.Infrastructure\obj\Debug\net6.0\DvdClub.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\WiZ14\Documents\bups\npp_\dvdclubcore\dvdclub\DvdClub.Infrastructure\obj\Debug\net6.0\DvdClub.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\WiZ14\Documents\bups\npp_\dvdclubcore\dvdclub\DvdClub.Infrastructure\obj\Debug\net6.0\DvdClub.Infrastructure.AssemblyInfo.cs
+C:\Users\WiZ14\Documents\bups\npp_\dvdclubcore\dvdclub\DvdClub.Infrastructure\obj\Debug\net6.0\DvdClub.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\WiZ14\Documents\bups\npp_\dvdclubcore\dvdclub\DvdClub.Infrastructure\obj\Debug\net6.0\DvdClub.Infrastructure.csproj.CopyComplete
+C:\Users\WiZ14\Documents\bups\npp_\dvdclubcore\dvdclub\DvdClub.Infrastructure\obj\Debug\net6.0\DvdClub.Infrastructure.dll
+C:\Users\WiZ14\Documents\bups\npp_\dvdclubcore\dvdclub\DvdClub.Infrastructure\obj\Debug\net6.0\refint\DvdClub.Infrastructure.dll
+C:\Users\WiZ14\Documents\bups\npp_\dvdclubcore\dvdclub\DvdClub.Infrastructure\obj\Debug\net6.0\DvdClub.Infrastructure.pdb
+C:\Users\WiZ14\Documents\bups\npp_\dvdclubcore\dvdclub\DvdClub.Infrastructure\obj\Debug\net6.0\ref\DvdClub.Infrastructure.dll
+C:\Users\WiZ14\Documents\bups\npp_\dvdclubcore\dvdclub\DvdClub.Infrastructure\bin\Debug\net6.0\DvdClub.Infrastructure.runtimeconfig.json
+C:\Users\WiZ14\Documents\bups\npp_\dvdclubcore\dvdclub\DvdClub.Infrastructure\obj\Debug\net6.0\DvdClub.Infrastructure.genruntimeconfig.cache

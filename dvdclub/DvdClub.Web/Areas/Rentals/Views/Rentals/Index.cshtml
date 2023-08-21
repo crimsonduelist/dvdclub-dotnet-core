@@ -1,0 +1,85 @@
+﻿@model DvdClub.Web.Areas.Rentals.Models.RentalsViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Return</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Id
+        </th>
+        <th>
+            Cid
+        </th>
+        Movie Title
+        <th>
+            Movie Title
+        </th>
+        <th>
+            UserId
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            DateRented
+        </th>
+        <th>
+            ExpectedReturnDate
+        </th>
+        <th>
+            ActualReturnDate
+        </th>
+        <th>
+            State
+        </th>
+        <th>
+            Comments
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach( var item in Model.Rentals ) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CopyId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Copy.Movie.Title)
+            </td>
+            <td>
+                @*@Html.DisplayFor(modelItem => item.UserId)*@
+            </td>
+            <td>
+                @*@Html.DisplayFor(modelItem => item.User.Email)*@
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.DateRented)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExpectedReturnDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ActualReturnDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.State)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comments)
+            </td>
+        </tr>
+    }
+
+</table>

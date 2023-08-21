@@ -1,0 +1,136 @@
+﻿@model DvdClub.Web.Areas.Rentals.Models.RentalsViewModel
+
+@{
+    ViewBag.Title = "ActiveRentals";
+}
+
+<h2>ActiveKrathseis</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Id
+        </th>
+        <th>
+            Cid
+        </th>
+        Movie Title
+        <th>
+            Movie Title
+        </th>
+        <th>
+            UserId
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            DateRented
+        </th>
+        <th>
+            ExpectedReturnDate
+        </th>
+        <th>
+            ActualReturnDate
+        </th>
+        <th>
+            State
+        </th>
+        <th>
+            Comments
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach( var item in Model.Rentals ) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CopyId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Copy.Movie.Title)
+            </td>
+            <td>
+                @* @Html.DisplayFor(modelItem => item.UserId) *@
+            </td>
+            <td>
+                @*@Html.DisplayFor(modelItem => item.User.Email)*@
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.DateRented)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExpectedReturnDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ActualReturnDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.State)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comments)
+            </td>
+            <td>
+                @*@using( Html.BeginForm("Return2", "Rentals", new { id = item.Id }, FormMethod.Post, new { id = "testform" }) ) {
+                        <input type="submit" id="testbtn" class="btn btn-default" />
+                    }*@
+                <button type="button" class="btn btn-secondary return" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                        name="returnRequest" id="testform" data-rentid=@item.Id>
+                    Return Movie
+                </button>
+            </td>
+        </tr>
+    }
+
+</table>
+@*JSON.stringify($(this).attr('action'))*@
+@*'@Url.Action("Return2", "Rentals", new { Area = "Rentals" })'*@
+<script type="text/javascript" src="~/Scripts/jquery-3.4.1.js"></script>
+<script>
+
+    @*$(document).ready(function () {*@
+        $(".return").on("click", function (e) {
+            var button = $(e.target);
+            var tmp = button.attr('data-rentid');
+            console.log(tmp);
+            var tt = $(this);
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("Return", "Rentals", new { Area = "Rentals" })',
+                data: { id: tmp },
+                success: function (data) {
+                    var message = data.message;
+
+                    if (message == "Returned Successfully") {
+                        console.log("ajax says: Returned Successfully");
+                        button.parents('tr').css('backgroundColor', '#FFCCCB ');//make the button red
+                        alert(message);//popup with the returned message //could add table row data
+                        button.parents('tr').fadeOut(1000, function () {
+                        });
+                        //tt.closest('tr').remove();//.fadeOut() also works here
+                    }
+                    if (message == "The Following Copy Has Already Been Returned") {
+                        console.log("ajax says: The Following Copy Has Already Been Returned");
+                        button.parents('tr').css('backgroundColor', '#F0F8FF');//make row AliceBlue
+
+                        alert(message );//popup with the returned message //could add the row data
+                            button.parents('tr').css('backgroundColor', '');
+                        }
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                            alert("error From the jquery ajax call itsel");
+                    }
+
+                });
+            return false;
+        });
+    @*});*@
+</script>

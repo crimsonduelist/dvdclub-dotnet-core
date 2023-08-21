@@ -1,0 +1,72 @@
+﻿@model DvdClub.Web.Areas.Rentals.Models.RentalsViewModel
+@*@model IEnumerable< DvdClub.Core.Entities.Rental>*@
+@{
+    ViewBag.Title = "RentalsByUserId";
+}
+
+<h2>RentalsByUserId</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Id
+            @*@Html.DisplayNameFor(model=>model.Id)*@
+        </th>
+        <th>
+            FirstName
+            @*@Html.DisplayNameFor(model => model.User.FirstName)*@
+        </th>
+        <th>
+            DateRented
+            @*@Html.DisplayNameFor(model => model.DateRented)*@
+        </th>
+        <th>
+            ExpectedReturnDate
+            @*@Html.DisplayNameFor(model => model.ExpectedReturnDate)*@
+        </th>
+        <th>
+            ActualReturnDate
+            @*@Html.DisplayNameFor(model => model.ActualReturnDate)*@
+        </th>
+        <th>
+            State
+            @*@Html.DisplayNameFor(model => model.State)*@
+        </th>
+        <th>
+            Comments
+            @*@Html.DisplayNameFor(model => model.Comments)*@
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model.Rentals) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CopyId)
+        </td>
+        <td>
+            @*@Html.DisplayFor(modelItem => item.User.FirstName)*@
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateRented)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExpectedReturnDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ActualReturnDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.State)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Comments)
+        </td>
+        
+    </tr>
+}
+
+</table>

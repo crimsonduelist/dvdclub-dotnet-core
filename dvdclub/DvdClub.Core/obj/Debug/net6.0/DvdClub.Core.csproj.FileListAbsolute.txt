@@ -1,0 +1,14 @@
+C:\Users\WiZ14\Documents\bups\npp_\dvdclubcore\dvdclub\DvdClub.Core\bin\Debug\net6.0\DvdClub.Core.deps.json
+C:\Users\WiZ14\Documents\bups\npp_\dvdclubcore\dvdclub\DvdClub.Core\bin\Debug\net6.0\DvdClub.Core.dll
+C:\Users\WiZ14\Documents\bups\npp_\dvdclubcore\dvdclub\DvdClub.Core\bin\Debug\net6.0\DvdClub.Core.pdb
+C:\Users\WiZ14\Documents\bups\npp_\dvdclubcore\dvdclub\DvdClub.Core\obj\Debug\net6.0\DvdClub.Core.csproj.AssemblyReference.cache
+C:\Users\WiZ14\Documents\bups\npp_\dvdclubcore\dvdclub\DvdClub.Core\obj\Debug\net6.0\DvdClub.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\WiZ14\Documents\bups\npp_\dvdclubcore\dvdclub\DvdClub.Core\obj\Debug\net6.0\DvdClub.Core.AssemblyInfoInputs.cache
+C:\Users\WiZ14\Documents\bups\npp_\dvdclubcore\dvdclub\DvdClub.Core\obj\Debug\net6.0\DvdClub.Core.AssemblyInfo.cs
+C:\Users\WiZ14\Documents\bups\npp_\dvdclubcore\dvdclub\DvdClub.Core\obj\Debug\net6.0\DvdClub.Core.csproj.CoreCompileInputs.cache
+C:\Users\WiZ14\Documents\bups\npp_\dvdclubcore\dvdclub\DvdClub.Core\obj\Debug\net6.0\DvdClub.Core.dll
+C:\Users\WiZ14\Documents\bups\npp_\dvdclubcore\dvdclub\DvdClub.Core\obj\Debug\net6.0\refint\DvdClub.Core.dll
+C:\Users\WiZ14\Documents\bups\npp_\dvdclubcore\dvdclub\DvdClub.Core\obj\Debug\net6.0\DvdClub.Core.pdb
+C:\Users\WiZ14\Documents\bups\npp_\dvdclubcore\dvdclub\DvdClub.Core\obj\Debug\net6.0\ref\DvdClub.Core.dll
+C:\Users\WiZ14\Documents\bups\npp_\dvdclubcore\dvdclub\DvdClub.Core\bin\Debug\net6.0\DvdClub.Core.runtimeconfig.json
+C:\Users\WiZ14\Documents\bups\npp_\dvdclubcore\dvdclub\DvdClub.Core\obj\Debug\net6.0\DvdClub.Core.genruntimeconfig.cache

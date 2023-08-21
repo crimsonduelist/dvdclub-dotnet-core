@@ -1,0 +1,112 @@
+﻿@*@using DvdClub.Core.Entities
+    @model Movie*@
+
+@*@model IEnumerable<DvdClub.Core.Entities.MOVIE>*@
+@*@using PagedList.Mvc;*@
+@using DvdClub.Core.Entities
+@using DvdClub.Core.Enumeration
+@using DvdClub.Web.Areas.Movies.Models
+
+@model DvdClub.Infrastructure.Models.PaginationModel<MovieIndexViewModel>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>
+    Index
+</h2>
+
+<p>
+    @Html.ActionLink("Add A Movie", "Create")
+</p>
+
+@using( Html.BeginForm("Index", "Movies", FormMethod.Get) ) {<!--FormMethod is needed for working with [HttpGet]-->
+    <div class="filter-container">
+        @*<table>*@       
+            @*<tr>*@
+
+                <!--could add something like String.IsNullOrEmpty(Model.searchString) ? "" : ""-->
+                <div class="filter-container-child">Find by name: @Html.TextBox("searchString", Model.SearchString@*, ViewBag.CurrentFilter as string*@)</div>
+
+                @*<div class="filter-container-child">@Html.DropDownList("Genre", EnumHelper.
+                GetSelectList(typeof(DvdClub.Core.Enumeration.Genre)), "Genre", new { @class = "form-control" })</div>*@
+        @*<select class="form-select" asp-items="Html.GetEnumSelectList<DvdClub.Core.Enumeration.Genre>()"></select>
+       
+        <select class="form-select filter-container-child form-control" asp-for="Model." asp-items="Html.GetEnumSelectList<DvdClub.Core.Enumeration.Genre>()">
+            <option selected="selected" value="gerne">Please select</option>
+        </select>*@
+        @Html.DropDownList("genre", 
+    Html.GetEnumSelectList<DvdClub.Core.Enumeration.Genre>(),
+    "Genre",new { @class = "form-control" })
+            @*</tr>
+            *@
+        @*</table>*@
+        <div class="filter-container-button"><input type="submit" class="btn btn-default" value="-->" /></div>
+    </div>
+}
+<table class="table">
+    <tr>
+        <th>
+            id
+        </th>
+        <th>
+            title
+        </th>
+        <th>
+            Genre
+        </th>
+        <th>
+            desc
+        </th>
+        <th>
+            # of copies
+        </th>
+        @*<th>*@
+        <!--connevt couple lines css to make it smaller-->
+        @*@using( Html.BeginForm("Index", "Movies", FormMethod.Get) ) {*@
+        @*@Html.DropDownList("Genre", EnumHelper.GetSelectList(typeof(DvdClub.Core.Enumeration.Genre)), "Genre", new { @class = "form-control" })*@
+        @*<input type="submit" value="-->" />}*@
+        @*</th>*@
+    </tr>
+
+    @foreach( var item in Model.Items ) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Genre)
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @item.Copy.Count(x => x.Availability != false)
+            </td>
+
+
+            <td>
+                only admin
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+
+                @Html.ActionLink("Rent", "Create", "Rentals", new { Area = "Rentals", movieId = item.Id }, new { }) |
+                <!--without ,null/new { }) it takes it as a route value instead of controller-->
+            </td>
+        </tr>
+    }
+
+</table>
+<br />
+
+
+Page @(Model.TotalPagesCount < Model.PageNum ? 0 : Model.PageNum) of @Model.TotalPagesCount
+@Html.ActionLink("Previous", "Index", new { page = Model.PageNum - 1, searchString = Model.SearchString, genre = Model.Genre })
+@foreach( var item in Model.Pages ) {
+
+    @Html.ActionLink(item.ToString(), "Index", new { page = item, searchString = Model.SearchString, genre = Model.Genre })
+}
+@Html.ActionLink("Next", "Index", new { page = Model.PageNum + 1, searchString = Model.SearchString, genre = Model.Genre })
+
+@*@Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))*@
