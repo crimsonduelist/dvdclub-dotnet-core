@@ -1,4 +1,4 @@
-﻿using DvdClub.Core.Enumeration;
+﻿using DvdClub.Domain.Enumeration;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;

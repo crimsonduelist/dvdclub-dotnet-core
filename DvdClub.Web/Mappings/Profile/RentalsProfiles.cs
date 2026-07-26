@@ -1,5 +1,5 @@
 ﻿//using AutoMapper;
-//using DvdClub.Core.Entities;
+//using DvdClub.Domain.Entities;
 
 //namespace DvdClub.Web.Mappings.Profile {
 //    public class RentalsProfile : AutoMapper.Profile {

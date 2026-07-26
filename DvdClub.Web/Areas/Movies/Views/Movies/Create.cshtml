@@ -38,7 +38,7 @@
                 @*@Html.DropDownListFor(model => model.Genre, htmlAttributes: new { @class = "form-control" })*@
                 @*@Html.DropDownListFor(Html.GetEnumSelectList<Genre>(),"genre",new { @class = "form-control" })*@
                 @*@Html.DropDownList("Genre",Html.GetEnumSelectList<Model.>(),"Genre",new { @class = "form-control" })*@
-                <select class="form-control" asp-for="Genre" asp-items="Html.GetEnumSelectList<DvdClub.Core.Enumeration.Genre>()">
+                <select class="form-control" asp-for="Genre" asp-items="Html.GetEnumSelectList<DvdClub.Domain.Enumeration.Genre>()">
                     <option selected="selected" value="">Genre</option>
                 </select>
                 <!--Could create additional property in the CreateBindingModel that s a list of Genre then fill it in my [HttpGet] 

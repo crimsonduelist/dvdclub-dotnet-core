@@ -5,81 +5,56 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Return</h2>
+<h2>Rentals</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
     <tr>
-        <th>
-            Id
-        </th>
-        <th>
-            Cid
-        </th>
-        Movie Title
-        <th>
-            Movie Title
-        </th>
-        <th>
-            UserId
-        </th>
-        <th>
-            Email
-        </th>
-        <th>
-            DateRented
-        </th>
-        <th>
-            ExpectedReturnDate
-        </th>
-        <th>
-            ActualReturnDate
-        </th>
-        <th>
-            State
-        </th>
-        <th>
-            Comments
-        </th>
+        <th>Id</th>
+        <th>Movie Title</th>
+        <th>Customer</th>
+        <th>Date Rented</th>
+        <th>Expected Return</th>
+        <th>Actual Return</th>
+        <th>State</th>
+        <th>Comments</th>
         <th></th>
     </tr>
 
-    @foreach( var item in Model.Rentals ) {
+    @foreach (var item in Model.Rentals) {
         <tr>
+            <td>@item.Id</td>
+            <td>@item.Copy.Movie.Title</td>
+            <td>@(item.Customer?.Name ?? "-")</td>
+            <td>@item.DateRented.ToShortDateString()</td>
+            <td>@item.ExpectedReturnDate.ToShortDateString()</td>
+            <td>@(item.ActualReturnDate?.ToShortDateString() ?? "-")</td>
+            <td>@item.State</td>
+            <td>@item.Comments</td>
             <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CopyId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Copy.Movie.Title)
-            </td>
-            <td>
-                @*@Html.DisplayFor(modelItem => item.UserId)*@
-            </td>
-            <td>
-                @*@Html.DisplayFor(modelItem => item.User.Email)*@
-            </td>
-
-            <td>
-                @Html.DisplayFor(modelItem => item.DateRented)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ExpectedReturnDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ActualReturnDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.State)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Comments)
+                @if (item.State == DvdClub.Domain.Enumeration.State.ACTIVE) {
+                    <button class="btn btn-sm btn-success return-btn" data-id="@item.Id">Return</button>
+                }
             </td>
         </tr>
     }
-
 </table>
+
+@section Scripts {
+    <script>
+        $(function () {
+            $('.return-btn').click(function () {
+                var id = $(this).data('id');
+                var btn = $(this);
+                $.post('/Rentals/Rentals/Return', { id: id }, function (data) {
+                    alert(data.message);
+                    btn.closest('tr').find('td:eq(5)').text(new Date().toLocaleDateString());
+                    btn.closest('tr').find('td:eq(6)').text('RETURNED');
+                    btn.remove();
+                });
+            });
+        });
+    </script>
+}

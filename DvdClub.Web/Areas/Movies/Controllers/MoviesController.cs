@@ -1,17 +1,17 @@
 using AutoMapper;
-using DvdClub.Core.Entities;
-using DvdClub.Core.Enumeration;
-using DvdClub.Core.Interfaces;
-using DvdClub.Infrastructure.Models;
-using DvdClub.Infrastructure.Models.Dtos;
-using DvdClub.Infrastructure.Services;
+using DvdClub.Domain.Entities;
+using DvdClub.Domain.Enumeration;
+using DvdClub.Domain.Interfaces;
+using DvdClub.Application.Models;
+using DvdClub.Application.Models.Dtos;
+using DvdClub.Application.Services;
 using DvdClub.Web.Areas.Movies.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace dvdclub.Web.Areas.Movies.Controllers {
+namespace DvdClub.Web.Areas.Movies.Controllers {
     [Area("Movies")]
     [Route("Movies/[controller]/[action]")]
-    //[Authorize]
     public class MoviesController : Controller {
         private readonly IMoviesService db;
         private IPaginationService paginationService;
@@ -32,7 +32,7 @@ namespace dvdclub.Web.Areas.Movies.Controllers {
             Genre? Genre,
             string searchString = ""
             ) {
-            int pageSize = 3;//set the pageSize here
+            int pageSize = 8;
 
             var paginationDto = new PaginationDto(page, pageSize);
 
@@ -60,16 +60,21 @@ namespace dvdclub.Web.Areas.Movies.Controllers {
                     );
             }
 
-            return View(paginationModel);/*.Result.Items.Select(x=>x.)*/ /*.AsyncState*/
+            if (Request.Headers["X-Requested-With"] == "XMLHttpRequest") {
+                return PartialView("_MoviesTable", paginationModel);
+            }
+            return View(paginationModel);
 
         }
 
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public ActionResult Create() {
             return View(new MoviesCreateBindingModel() );
 
         }
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         public ActionResult Create(MoviesCreateBindingModel model) {
             if( !ModelState.IsValid ) {
@@ -82,6 +87,7 @@ namespace dvdclub.Web.Areas.Movies.Controllers {
         }
 
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int id) {
             var movie = db.Get(id);
             var model = new MoviesEditBindingModel(movie.Id, movie.Title, movie.Description, movie.Genre);
@@ -91,6 +97,7 @@ namespace dvdclub.Web.Areas.Movies.Controllers {
             return NotFound();
         }
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(MoviesEditBindingModel model) {
             if( ModelState.IsValid ) {

@@ -1,34 +1,50 @@
 ﻿using Autofac;
 using Autofac.Core;
 using Autofac.Extensions.DependencyInjection;
-using DvdClub.Common.Services;
-using DvdClub.Core.Interfaces;
+using DvdClub.Application.Services;
+using DvdClub.Domain.Entities;
+using DvdClub.Domain.Interfaces;
 using DvdClub.Infrastructure.Data;
-using DvdClub.Infrastructure.Services;
 using DvdClub.Web.Mappings;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 
-namespace dvdclub.Web {
+namespace DvdClub.Web {
     public static class RegisterServices {
         public static void ConfigureServies(this WebApplicationBuilder builder) {
             builder.Services.AddControllersWithViews();
 
-            /*Non Autofac Configuration*/
-
             builder.Services.AddTransient<IMoviesService, MoviesService>();
             builder.Services.AddTransient<IRentalsService, RentalsService>();
+            builder.Services.AddTransient<ICustomersService, CustomersService>();
             builder.Services.AddTransient<IPaginationService, PaginationService>();
 
             ConfigurationManager configuration = builder.Configuration;
             builder.Services.AddDbContextPool<DvdClubDbContext>(options => {
-                options.UseSqlServer(configuration.GetConnectionString("DvdClubDbContextConnectionString"));
+                // SQLite for local dev — no server needed, DB file created automatically.
+                // To use SQL Server: swap to UseSqlServer() and update the connection string in appsettings.json.
+                // options.UseSqlServer(configuration.GetConnectionString("DvdClubDbContextConnectionString"));
+                options.UseSqlite(configuration.GetConnectionString("DvdClubDbContextConnectionString"));
+            });
+
+            builder.Services.AddDefaultIdentity<ApplicationUser>(options => {
+                options.SignIn.RequireConfirmedAccount = false;
+                options.Password.RequireDigit = false;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequiredLength = 1;
+            })
+            .AddRoles<IdentityRole>()
+            .AddEntityFrameworkStores<DvdClubDbContext>();
+
+            builder.Services.ConfigureApplicationCookie(options => {
+                options.LoginPath = "/Login/Login/Index";
+                options.AccessDeniedPath = "/Shared/AccessDenied";
             });
 
             builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-
-            /*Non Autofac Configuration*/
 
 
             /*builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory())

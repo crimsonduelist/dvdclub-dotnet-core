@@ -1,4 +1,4 @@
-﻿using DvdClub.Core.Entities;
+﻿using DvdClub.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;

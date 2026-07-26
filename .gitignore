@@ -40,3 +40,6 @@ PublishScripts/
 # Coverage
 *.coverage
 *.coveragexml
+
+# LibMan
+wwwroot/lib/

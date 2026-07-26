@@ -1,5 +1,5 @@
-﻿using DvdClub.Core.Entities;
-using DvdClub.Core.Enumeration;
+﻿using DvdClub.Domain.Entities;
+using DvdClub.Domain.Enumeration;
 using System;
 using System.Collections.Generic;
 using System.Linq;

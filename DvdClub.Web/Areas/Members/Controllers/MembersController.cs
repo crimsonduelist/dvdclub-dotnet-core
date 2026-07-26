@@ -1,31 +1,25 @@
-﻿using AutoMapper;
-using DvdClub.Core.Entities;
-using DvdClub.Core.Interfaces;
+﻿using DvdClub.Domain.Entities;
 using DvdClub.Web.Areas.Members.Models;
-//using DvdClub.Web.Mappings;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace DvdClub.Web.Areas.Members {
+    [Area("Members")]
+    [Route("Members/[controller]/[action]")]
+    [Authorize(Roles = "Admin")]
     public class MembersController : Controller {
-        private readonly IUsersService db;
-        protected IMapper _mapper { get; set; }
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        //constructor
-        public MembersController(IUsersService db/*, IMapper mapper*/) {
-            this.db = db;
-            //this._mapper = mapper;
+        public MembersController(UserManager<ApplicationUser> userManager) {
+            _userManager = userManager;
         }
-        // GET: Users
-        //[HttpGet]
-        //public ActionResult Index() {
-        //    var users = db.GetAll();
-        //    var membersIndexViewModel = new MembersIndexViewModel(users);
-        //    return View(membersIndexViewModel);
-        //}
 
+        [HttpGet]
+        public ActionResult Index() {
+            var users = _userManager.Users.ToList();
+            var model = new MembersIndexViewModel(users);
+            return View(model);
+        }
     }
 }

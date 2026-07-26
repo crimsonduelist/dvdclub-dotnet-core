@@ -1,48 +1,37 @@
-﻿using DvdClub.Core.Entities;
-using DvdClub.Core.Enumeration;
+﻿using DvdClub.Domain.Entities;
+using DvdClub.Domain.Enumeration;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
 
-namespace DvdClub.Web.Areas.Rentals.Models {    //BindingModels
+namespace DvdClub.Web.Areas.Rentals.Models {
     public class RentalsCreateBindingModel {
-        public string Comments { get; set; }//from rental
-        //public IEnumerable<ExtendedUser> Emails { get; set; }
+        public string Comments { get; set; }
         public IEnumerable<Movie> MovieTitles { get; set; }
-        
+        public IEnumerable<Customer> Customers { get; set; }
 
-        public string UserId { get; set; }
-        public int MovieId{ get; set; }
-
+        public int CustomerId { get; set; }
+        public int MovieId { get; set; }
 
         public RentalsCreateBindingModel() {
-
         }
-
     }
 
     public class RentalsReturnBindingModel {
         public int Id;
-        public string UserId;
-        public string UserName;
         public State State;
         public int CopyId;
         public string MovieTitle;
 
         public RentalsReturnBindingModel() {
         }
-        public RentalsReturnBindingModel(int id, string userId, State state, int copyId) {
+        public RentalsReturnBindingModel(int id, State state, int copyId) {
             this.Id = id;
-            this.UserId = userId;
             this.State = state;
             this.CopyId = copyId;
         }
-        public RentalsReturnBindingModel(int id, string userId, State state, int copyId, string userName, string movieTitle) {
+        public RentalsReturnBindingModel(int id, State state, int copyId, string movieTitle) {
             this.Id = id;
-            this.UserId = userId;
-            this.UserName = userName;
             this.State = state;
             this.CopyId = copyId;
             this.MovieTitle = movieTitle;

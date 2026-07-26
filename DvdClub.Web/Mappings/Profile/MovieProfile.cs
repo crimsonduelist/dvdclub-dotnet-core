@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using DvdClub.Core.Entities;
+using DvdClub.Domain.Entities;
 using DvdClub.Web.Areas.Movies.Models;
 
 namespace DvdClub.Web.Mappings.Profile {

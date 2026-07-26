@@ -1,12 +1,11 @@
 ﻿using Autofac;
-using DvdClub.Common.Services;
-using DvdClub.Core.Interfaces;
+using DvdClub.Application.Services;
+using DvdClub.Domain.Interfaces;
 using DvdClub.Infrastructure.Data;
-using DvdClub.Infrastructure.Services;
 using System.Reflection;
 using Module = Autofac.Module;
 
-namespace dvdclub.Web {
+namespace DvdClub.Web {
     public  class ContainerConfig : Module {
         public static IContainer Configure(/*ContainerBuilder containerBuilder*/) {
             
@@ -24,9 +23,9 @@ namespace dvdclub.Web {
                    .InstancePerRequest();
             containerBuilder.RegisterType<DvdClubDbContext>()
                 .InstancePerRequest();
-            //containerBuilder.RegisterAssemblyTypes(Assembly.Load(nameof(DvdClub.Common)))
+            //containerBuilder.RegisterAssemblyTypes(Assembly.Load(nameof(DvdClub.Application)))
             //    .Where(t => t.Namespace.Contains("Services"))
-            //    .As(Assembly.Load(nameof(DvdClub.Core)) );
+            //    .As(Assembly.Load(nameof(DvdClub.Domain)) );
 
             return containerBuilder.Build();
         }

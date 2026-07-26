@@ -1,0 +1,56 @@
+{
+  "version": "1.0",
+  "defaultProvider": "jsdelivr",
+  "defaultDestination": "wwwroot/lib",
+  "libraries": [
+    {
+      "provider": "jsdelivr",
+      "library": "bootstrap@5.1.0",
+      "destination": "wwwroot/lib/bootstrap",
+      "files": [
+        "dist/css/bootstrap.min.css",
+        "dist/css/bootstrap.min.css.map",
+        "dist/css/bootstrap.rtl.min.css",
+        "dist/css/bootstrap.rtl.min.css.map",
+        "dist/js/bootstrap.bundle.min.js",
+        "dist/js/bootstrap.bundle.min.js.map",
+        "dist/js/bootstrap.esm.min.js",
+        "dist/js/bootstrap.esm.min.js.map",
+        "dist/js/bootstrap.min.js",
+        "dist/js/bootstrap.min.js.map",
+        "LICENSE"
+      ]
+    },
+    {
+      "provider": "jsdelivr",
+      "library": "jquery@3.5.1",
+      "destination": "wwwroot/lib/jquery",
+      "files": [
+        "dist/jquery.min.js",
+        "dist/jquery.js",
+        "LICENSE.txt"
+      ]
+    },
+    {
+      "provider": "jsdelivr",
+      "library": "jquery-validation@1.17.0",
+      "destination": "wwwroot/lib/jquery-validation",
+      "files": [
+        "dist/jquery.validate.min.js",
+        "dist/jquery.validate.js",
+        "dist/additional-methods.min.js",
+        "dist/additional-methods.js",
+        "LICENSE.md"
+      ]
+    },
+    {
+      "provider": "jsdelivr",
+      "library": "jquery-ajax-unobtrusive@3.2.6",
+      "destination": "wwwroot/lib/jquery-validation-unobtrusive",
+      "files": [
+        "dist/jquery.unobtrusive-ajax.min.js",
+        "dist/jquery.unobtrusive-ajax.js"
+      ]
+    }
+  ]
+}

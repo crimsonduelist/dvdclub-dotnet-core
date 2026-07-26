@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DvdClub.Core", "DvdClub.Core\DvdClub.Core.csproj", "{E59B9560-A18A-4A24-9C74-B60CC3735882}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DvdClub.Domain", "DvdClub.Domain\DvdClub.Domain.csproj", "{E59B9560-A18A-4A24-9C74-B60CC3735882}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DvdClub.Common", "DvdClub.Common\DvdClub.Common.csproj", "{BF19D691-172D-49AA-8C98-E61C49838D4B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DvdClub.Application", "DvdClub.Application\DvdClub.Application.csproj", "{BF19D691-172D-49AA-8C98-E61C49838D4B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DvdClub.Infrastructure", "DvdClub.Infrastructure\DvdClub.Infrastructure.csproj", "{B9B0F7F3-8A23-408D-AA1D-A42BA151CEF9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dvdclub.Web", "DvdClub.Web\dvdclub.Web.csproj", "{EAF5F465-F0FA-49E2-AC30-679293ACE193}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DvdClub.Web", "DvdClub.Web\DvdClub.Web.csproj", "{EAF5F465-F0FA-49E2-AC30-679293ACE193}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
