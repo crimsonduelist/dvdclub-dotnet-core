@@ -9,6 +9,8 @@ A web-based DVD club management system built with ASP.NET Core 6 MVC. A rewrite 
 # Quick start (deletes old DB, rebuilds, seeds data, runs on http://localhost:5052)
 ./build.sh
 ```
+**Dependencies**
+- .NET-6
 
 ### Database
 Uses SQLite by default — no server needed, the .db file is created automatically on first run. The database is seeded with sample data (movies, customers, rentals, roles, and users). To reset, delete DvdClub.Web/dvdclub.db.
